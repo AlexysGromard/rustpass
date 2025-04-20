@@ -1,10 +1,21 @@
-use std::env;
+use clap::Parser;
 
-pub fn read_args() {
-    // Read the arguments
-    let args: Vec<String> = env::args().skip(1).collect();
+#[derive(Parser)]
+#[command(name = "rustpass", about = "A password generator", version = "1.0")]
+pub struct Args {
+    /// The length of the password
+    #[arg(short, long, default_value = "16")]
+    pub lenght: usize,
 
-    for (i, argument) in args.iter().enumerate() {
-        println!("Argument {i} is {argument}")
-    }
+    /// If the password should contain uppercase letters
+    #[arg(short, long, default_value = "false")]
+    pub uppercase: bool,
+
+    /// If the password should contain numbers
+    #[arg(short, long, default_value = "false")]
+    pub numbers: bool,
+
+    /// If the password should contain symbols
+    #[arg(short, long, default_value = "false")]
+    pub symbols: bool,
 }
