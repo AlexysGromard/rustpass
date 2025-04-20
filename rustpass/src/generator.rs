@@ -19,7 +19,7 @@ pub fn generate_password(args: &Args) -> String {
     // Get an RNG:
     let mut rng = rand::rng();
     // Generate a random password:
-    let password: String = (0..args.lenght)
+    let password: String = (0..args.length)
         .map(|_| {
             let idx = rng.random_range(0..base.len());
             base.chars().nth(idx).unwrap()

@@ -5,7 +5,7 @@ use clap::Parser;
 pub struct Args {
     /// The length of the password
     #[arg(short, long, default_value = "16")]
-    pub lenght: usize,
+    pub length: usize,
 
     /// If the password should contain uppercase letters
     #[arg(short, long, default_value = "false")]
